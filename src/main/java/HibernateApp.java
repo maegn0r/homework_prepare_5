@@ -1,5 +1,6 @@
 import dao.StudentDao;
 import entity.Student;
+import enums.Mark;
 import factory.HibernateFactory;
 import utils.StudentsGeneration;
 
@@ -9,13 +10,13 @@ public class HibernateApp {
     public static void main(String[] args) {
         StudentDao studentDao = new StudentDao();
 
-        studentDao.save(new Student("Roman","studying"));
-        System.out.println(studentDao.findById(13L));
-        studentDao.delete(studentDao.findById(13L));
-        System.out.println(studentDao.findById(13L));
-        Student student = studentDao.findById(6L);
+        studentDao.save(new Student("Roman", Mark.STUDYING));
+        System.out.println(studentDao.findById(24L));
+        studentDao.delete(studentDao.findById(24L));
+        System.out.println(studentDao.findById(24L));
+        Student student = studentDao.findById(26L);
         student.setName("Kolya");
-        student.setMark("graduated");
+        student.setMark(Mark.GRADUATED);
         studentDao.update(student);
         System.out.println(studentDao.findById(6L));
         System.out.println(studentDao.findAll());

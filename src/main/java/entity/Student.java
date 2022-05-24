@@ -1,5 +1,6 @@
 package entity;
 
+import enums.Mark;
 import jakarta.persistence.*;
 
 
@@ -14,13 +15,14 @@ public class Student {
     @Column(name = "name")
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "mark")
-    private String mark;
+    private Mark mark;
 
     public Student() {
     }
 
-    public Student(String name, String mark) {
+    public Student(String name, Mark mark) {
         this.name = name;
         this.mark = mark;
     }
@@ -41,11 +43,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getMark() {
+    public Mark getMark() {
         return mark;
     }
 
-    public void setMark(String mark) {
+    public void setMark(Mark mark) {
         this.mark = mark;
     }
 

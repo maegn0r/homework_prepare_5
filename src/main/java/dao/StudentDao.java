@@ -18,10 +18,11 @@ public class StudentDao {
             session.getTransaction().commit();
         }
     }
+
     public void save(List<Student> studentList) {
         try (Session session = HibernateFactory.getFactory().getCurrentSession()) {
             session.beginTransaction();
-            for (Student student : studentList ) {
+            for (Student student : studentList) {
                 session.persist(student);
             }
             session.getTransaction().commit();
@@ -60,10 +61,11 @@ public class StudentDao {
             session.beginTransaction();
             students = session.createQuery("from Student", Student.class).getResultList();
             session.getTransaction().commit();
-        } return students;
+        }
+        return students;
     }
 
-    public void test(){
+    public void test() {
         Session session = HibernateFactory.getFactory().getCurrentSession();
     }
 }
