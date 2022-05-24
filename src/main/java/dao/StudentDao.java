@@ -18,6 +18,15 @@ public class StudentDao {
             session.getTransaction().commit();
         }
     }
+    public void save(List<Student> studentList) {
+        try (Session session = HibernateFactory.getFactory().getCurrentSession()) {
+            session.beginTransaction();
+            for (Student student : studentList ) {
+                session.persist(student);
+            }
+            session.getTransaction().commit();
+        }
+    }
 
     public void delete(Student student) {
         try (Session session = HibernateFactory.getFactory().getCurrentSession()) {
